@@ -1,0 +1,49 @@
+<div *ngFor="let property of properties" class="property">
+  <h2>{{ property.propertyName }}</h2>
+
+  <!-- Features -->
+  <h3>Features</h3>
+  <ul>
+    <li *ngFor="let feature of property.features">{{ feature }}</li>
+  </ul>
+
+  <!-- Highlights -->
+  <h3>Highlights</h3>
+  <ul>
+    <li *ngFor="let highlight of property.highlights">{{ highlight }}</li>
+  </ul>
+
+  <!-- Transportation -->
+  <h3>Transportation</h3>
+  <ul>
+    <li *ngFor="let transport of property.transportation">
+      {{ transport.type }}
+      <span *ngIf="transport.line">({{ transport.line }})</span>
+      - {{ transport.distance }}
+    </li>
+  </ul>
+
+  <!-- Spaces -->
+  <h3>Spaces</h3>
+  <div *ngFor="let space of property.spaces" class="space">
+    <h4>{{ space.spaceName }}</h4>
+
+    <!-- Rent Roll -->
+    <h5>Rent Roll</h5>
+    <table>
+      <thead>
+        <tr>
+          <th>Month</th>
+          <th>Rent ($)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let rent of space.rentRoll">
+          <td>{{ rent.month }}</td>
+          <td>{{ rent.rent }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
